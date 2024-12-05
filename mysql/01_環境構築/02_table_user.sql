@@ -3,7 +3,7 @@ USE sample;
 
 -- ユーザーテーブル
 CREATE TABLE cm_t_users (
-    id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'ユーザーID',
+    user_id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'ユーザーID',
     first_name VARCHAR(50) NOT NULL COMMENT '名',
     last_name VARCHAR(50) NOT NULL COMMENT '姓',
     email VARCHAR(100) NOT NULL COMMENT 'メールアドレス',
