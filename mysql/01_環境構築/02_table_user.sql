@@ -1,6 +1,9 @@
 -- データベースを選択
 USE sample;
 
+-- 既存のテーブルを削除
+DROP TABLE IF EXISTS cm_t_users;
+
 -- ユーザーテーブル
 CREATE TABLE cm_t_users (
     user_id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'ユーザーID',
