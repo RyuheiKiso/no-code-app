@@ -1,6 +1,9 @@
 -- データベースを選択
 USE sample;
 
+-- 既存のテーブルを削除
+DROP TABLE IF EXISTS user_roles;
+
 -- ユーザーと権限の関係テーブル
 CREATE TABLE user_roles (
     user_id INT,
