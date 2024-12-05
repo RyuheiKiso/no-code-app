@@ -2,10 +2,10 @@
 USE sample;
 
 -- 既存のテーブルを削除
-DROP TABLE IF EXISTS cm_t_users;
+DROP TABLE IF EXISTS cm_m_users;
 
 -- ユーザーテーブル
-CREATE TABLE cm_t_users (
+CREATE TABLE cm_m_users (
     user_id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'ユーザーID',
     first_name VARCHAR(50) NOT NULL COMMENT '名',
     last_name VARCHAR(50) NOT NULL COMMENT '姓',
@@ -19,4 +19,4 @@ CREATE TABLE cm_t_users (
 );
 
 -- テーブルにインデックスを追加
-CREATE INDEX idx_cm_t_users_email ON cm_t_users (email);
+CREATE INDEX idx_cm_m_users_email ON cm_m_users (email);
