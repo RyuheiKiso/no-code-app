@@ -1,0 +1,5 @@
+# docker起動
+docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -p 3306:3306 -d mysql:latest
+
+# MySqlコンテナへ接続
+docker exec -it mysql_container mysql -u root -p
