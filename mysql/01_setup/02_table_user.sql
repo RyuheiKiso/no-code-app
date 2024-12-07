@@ -20,3 +20,8 @@ CREATE TABLE cm_m_users (
 
 -- テーブルにインデックスを追加
 CREATE INDEX idx_cm_m_users_email ON cm_m_users (email);
+
+-- データを挿入
+INSERT INTO cm_m_users (first_name, last_name, email, password, created_by, updated_by)
+VALUES ('太郎', '山田', 'test_1@test.com', 'password', 'system', 'system'),
+       ('花子', '山田', 'test_2@test.com', 'password', 'system', 'system');
