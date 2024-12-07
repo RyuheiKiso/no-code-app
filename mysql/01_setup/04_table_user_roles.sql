@@ -16,3 +16,9 @@ CREATE TABLE cm_m_user_roles (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新日時',
     updated_by VARCHAR(50) NOT NULL COMMENT '更新ユーザー'
     );
+
+    -- サンプルデータを挿入
+INSERT INTO cm_m_user_roles (user_id, role_id, created_by, updated_by)
+VALUES (1, 1, 'system', 'system'),
+       (2, 2, 'system', 'system'),
+       (1, 3, 'system', 'system');
