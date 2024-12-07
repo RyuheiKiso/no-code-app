@@ -21,3 +21,9 @@ CREATE TABLE cm_m_menu (
     FOREIGN KEY (parent_id) REFERENCES cm_m_menu(menu_id)
 );
 
+-- サンプルデータを挿入
+INSERT INTO cm_m_menu (menu_id, menu_name, parent_id, menu_type, url, icon, status, description, created_by, updated_by)
+VALUES ('1', 'ホーム', NULL, 'ページ', '/home', 'home_icon', 'active', 'ホームページ', 'system', 'system'),
+       ('2', 'ユーザー管理', NULL, 'ページ', '/users', 'user_icon', 'active', 'ユーザー管理ページ', 'system', 'system'),
+       ('3', '設定', NULL, 'ページ', '/settings', 'settings_icon', 'active', '設定ページ', 'system', 'system'),
+       ('4', 'プロフィール', '2', 'ページ', '/users/profile', 'profile_icon', 'active', 'プロフィールページ', 'system', 'system');
