@@ -7,6 +7,32 @@
 - `gRPCClient.tsx`: gRPC クライアントを作成する関数を定義している。
 - `gRPCService.tsx`: gRPC サービスからデータを取得する関数を定義している。
 
+## protoファイルの作成方法
+
+gRPCサービスを定義するために、まずprotoファイルを作成します。以下は、`sample.proto`ファイルの例です。
+
+```proto
+syntax = "proto3";
+
+package yourpackage;
+
+// サービスの定義
+service YourService {
+  // RPCメソッドの定義
+  rpc GetYourData (YourRequest) returns (YourResponse);
+}
+
+// リクエストメッセージの定義
+message YourRequest {
+  string your_field = 1;
+}
+
+// レスポンスメッセージの定義
+message YourResponse {
+  string your_response_field = 1;
+}
+```
+
 ## 使用方法
 
 ### gRPC クライアントの作成
