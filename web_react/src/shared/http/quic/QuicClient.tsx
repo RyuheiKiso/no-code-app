@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react';
 
+// QuicProtoClientProps インターフェース
+// url: 接続先のURL
+// requestData: リクエストデータ
+// YourResponse: レスポンスデータの型
 interface QuicProtoClientProps {
   url: string;
   requestData: any;
   YourResponse: any;
 }
 
+// useQuicProtoClient フック
+// QUICプロトコルを使用してデータを送受信するカスタムフック
 const useQuicProtoClient = ({ url, requestData, YourResponse }: QuicProtoClientProps) => {
   // データ取得用のステート
   const [data, setData] = useState<any | null>(null);
   // エラー内容を保持するステート
   const [error, setError] = useState<string | null>(null);
 
+  // コンポーネントのマウント時および依存関係の変更時に実行される
   useEffect(() => {
+    // データを取得する非同期関数
     const fetchData = async () => {
       try {
         // リクエストデータをバイナリ形式にシリアライズ
@@ -50,6 +58,7 @@ const useQuicProtoClient = ({ url, requestData, YourResponse }: QuicProtoClientP
       }
     };
 
+    // データ取得関数を呼び出す
     fetchData();
   }, [url, requestData, YourResponse]);
 

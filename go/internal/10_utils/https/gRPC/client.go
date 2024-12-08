@@ -15,6 +15,11 @@ import (
 )
 
 // NewClientConn は新しいgRPCクライアント接続を作成します
+// address: 接続先アドレス
+// timeout: 接続のタイムアウト時間
+// maxRetries: 最大リトライ回数
+// retryBackoff: リトライのバックオフ時間
+// authToken: 認証トークン
 func NewClientConn(address string, timeout time.Duration, maxRetries int, retryBackoff time.Duration, authToken string) (*grpc.ClientConn, error) {
 	// タイムアウト付きのコンテキストを作成
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
@@ -50,12 +55,19 @@ func NewClientConn(address string, timeout time.Duration, maxRetries int, retryB
 	ctx = metadata.NewOutgoingContext(ctx, md)
 
 	// カスタムロギングインターセプター
+	// gRPC呼び出しの前後でログを記録するためのインターセプター
 	loggingInterceptor := func(
+		// ctx: コンテキスト
 		ctx context.Context,
+		// method: 呼び出されるgRPCメソッドの名前
 		method string,
+		// req: gRPCリクエスト
 		req, reply interface{},
+		// cc: gRPCクライアント接続
 		cc *grpc.ClientConn,
+		// invoker: 実際のgRPC呼び出しを行う関数
 		invoker grpc.UnaryInvoker,
+		// opts: gRPC呼び出しのオプション
 		opts ...grpc.CallOption,
 	) error {
 		// リクエスト開始時間を記録
@@ -72,12 +84,19 @@ func NewClientConn(address string, timeout time.Duration, maxRetries int, retryB
 	}
 
 	// トレーシングインターセプター
+	// gRPC呼び出しのトレーシングを行うためのインターセプター
 	tracingInterceptor := func(
+		// ctx: コンテキスト
 		ctx context.Context,
+		// method: 呼び出されるgRPCメソッドの名前
 		method string,
+		// req: gRPCリクエスト
 		req, reply interface{},
+		// cc: gRPCクライアント接続
 		cc *grpc.ClientConn,
+		// invoker: 実際のgRPC呼び出しを行う関数
 		invoker grpc.UnaryInvoker,
+		// opts: gRPC呼び出しのオプション
 		opts ...grpc.CallOption,
 	) error {
 		// トレーサーを取得
@@ -97,12 +116,19 @@ func NewClientConn(address string, timeout time.Duration, maxRetries int, retryB
 	}
 
 	// エラーハンドリングインターセプター
+	// gRPC呼び出しのエラーハンドリングを行うためのインターセプター
 	errorHandlingInterceptor := func(
+		// ctx: コンテキスト
 		ctx context.Context,
+		// method: 呼び出されるgRPCメソッドの名前
 		method string,
+		// req: gRPCリクエスト
 		req, reply interface{},
+		// cc: gRPCクライアント接続
 		cc *grpc.ClientConn,
+		// invoker: 実際のgRPC呼び出しを行う関数
 		invoker grpc.UnaryInvoker,
+		// opts: gRPC呼び出しのオプション
 		opts ...grpc.CallOption,
 	) error {
 		// 実際のRPC呼び出し
@@ -142,6 +168,7 @@ func NewClientConn(address string, timeout time.Duration, maxRetries int, retryB
 }
 
 // CloseClientConn はgRPCクライアント接続を閉じます
+// conn: 閉じるgRPCクライアント接続
 func CloseClientConn(conn *grpc.ClientConn) {
 	// 接続クローズ失敗時のログ出力
 	if err := conn.Close(); err != nil {
