@@ -1,15 +1,19 @@
 // messages.tsx
 
 // エラーメッセージ
-export const ERROR_MESSAGE = 'エラーが発生しました。';
-
-// 成功メッセージ
-export const SUCCESS_MESSAGE = '操作が成功しました。';
-
-// バリデーションエラーメッセージ
-export const VALIDATION_ERROR_MESSAGE = '入力内容を確認してください。';
-
-// 使用例:
-// console.log(ERROR_MESSAGE);
-// console.log(SUCCESS_MESSAGE);
-// console.log(VALIDATION_ERROR_MESSAGE);
+export const ERROR_MESSAGES = {
+    GENERAL: 'エラーが発生しました。',
+    VALIDATION: '入力内容を確認してください。',
+    NETWORK: 'ネットワークエラーが発生しました。',
+  };
+  
+  // 成功メッセージ
+  export const SUCCESS_MESSAGES = {
+    GENERAL: '操作が成功しました。',
+    LOGIN: 'ログインに成功しました。',
+    REGISTER: '登録に成功しました。',
+  };
+  
+  // 使用例:
+  // console.log(ERROR_MESSAGES.GENERAL);
+  // console.log(SUCCESS_MESSAGES.LOGIN);
