@@ -1,17 +1,16 @@
 // appConfig.tsx
 
-// アプリケーション名
-export const APP_NAME = 'MyApp';
-
-// アプリケーションのバージョン
-export const APP_VERSION = '1.0.0';
-
-// APIリクエストのタイムアウト時間（ミリ秒）
-export const API_TIMEOUT = 5000;
-
-// 使用例:
-// console.log(`アプリケーション名: ${APP_NAME}`);
-// console.log(`バージョン: ${APP_VERSION}`);
-// fetch(API_ENDPOINT, { timeout: API_TIMEOUT })
-//   .then(response => response.json())
-//   .then(data => console.log(data));
+// アプリケーション設定
+export const APP_CONFIG = {
+    NAME: 'MyApp',
+    VERSION: '1.0.0',
+    API_TIMEOUT: 5000,
+    ENVIRONMENT: process.env.NODE_ENV || 'development',
+  };
+  
+  // 使用例:
+  // console.log(`アプリケーション名: ${APP_CONFIG.NAME}`);
+  // console.log(`バージョン: ${APP_CONFIG.VERSION}`);
+  // fetch(API_ENDPOINT, { timeout: APP_CONFIG.API_TIMEOUT })
+  //   .then(response => response.json())
+  //   .then(data => console.log(data));
