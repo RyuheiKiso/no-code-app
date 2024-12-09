@@ -11,6 +11,10 @@ export const APP_CONFIG = {
   },
 };
 
+export const updateAppConfig = (newConfig: Partial<typeof APP_CONFIG.SETTINGS>) => {
+  Object.assign(APP_CONFIG.SETTINGS, newConfig);
+};
+
   // 使用例:
   // console.log(`アプリケーション名: ${APP_CONFIG.NAME}`);
   // console.log(`バージョン: ${APP_CONFIG.VERSION}`);
