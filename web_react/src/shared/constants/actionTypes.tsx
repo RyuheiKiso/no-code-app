@@ -1,31 +1,32 @@
 // actionTypes.tsx
 
-// ログインリクエストのアクションタイプ
-export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+// 認証関連のアクションタイプ
+export const AUTH = {
+  LOGIN_REQUEST: 'LOGIN_REQUEST',
+  LOGIN_SUCCESS: 'LOGIN_SUCCESS',
+  LOGIN_FAILURE: 'LOGIN_FAILURE',
+  LOGOUT: 'LOGOUT',
+};
 
-// ログイン成功のアクションタイプ
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-
-// ログイン失敗のアクションタイプ
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+// プロフィール関連のアクションタイプ
+export const PROFILE = {
+  FETCH_PROFILE_REQUEST: 'FETCH_PROFILE_REQUEST',
+  FETCH_PROFILE_SUCCESS: 'FETCH_PROFILE_SUCCESS',
+  FETCH_PROFILE_FAILURE: 'FETCH_PROFILE_FAILURE',
+};
 
 /*
 使用例:
 
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './actionTypes';
+import { AUTH, PROFILE } from './actionTypes';
 
 // アクションクリエーターの例
 const loginRequest = () => ({
-  type: LOGIN_REQUEST,
+  type: AUTH.LOGIN_REQUEST,
 });
 
-const loginSuccess = (user) => ({
-  type: LOGIN_SUCCESS,
-  payload: user,
-});
-
-const loginFailure = (error) => ({
-  type: LOGIN_FAILURE,
-  payload: error,
+const fetchProfileSuccess = (profile) => ({
+  type: PROFILE.FETCH_PROFILE_SUCCESS,
+  payload: profile,
 });
 */
