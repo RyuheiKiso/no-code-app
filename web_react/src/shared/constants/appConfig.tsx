@@ -1,13 +1,16 @@
 // appConfig.tsx
 
-// アプリケーション設定
 export const APP_CONFIG = {
-    NAME: 'MyApp',
-    VERSION: '1.0.0',
-    API_TIMEOUT: 5000,
-    ENVIRONMENT: process.env.NODE_ENV || 'development',
-  };
-  
+  NAME: 'MyApp',
+  VERSION: '1.0.0',
+  API_TIMEOUT: 5000,
+  ENVIRONMENT: process.env.NODE_ENV || 'development',
+  SETTINGS: {
+      API_TIMEOUT: 5000,
+      ENVIRONMENT: process.env.NODE_ENV || 'development',
+  },
+};
+
   // 使用例:
   // console.log(`アプリケーション名: ${APP_CONFIG.NAME}`);
   // console.log(`バージョン: ${APP_CONFIG.VERSION}`);
