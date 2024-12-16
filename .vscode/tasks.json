@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "start-react",
+        "type": "shell",
+        "command": "npm",
+        "args": ["start"],
+        "options": {
+          "cwd": "${workspaceFolder}/web_react" // package.jsonが存在するディレクトリに変更
+        },
+        "isBackground": true,
+        "problemMatcher": {
+          "owner": "custom",
+          "fileLocation": ["relative", "${workspaceFolder}"],
+          "pattern": [
+            {
+              "regexp": ".",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": ".",
+            "endsPattern": "."
+          }
+        }
+      },
+      {
+        "label": "open-safari",
+        "type": "shell",
+        "command": "open",
+        "args": ["-a", "Safari", "http://localhost:3000"]
+      }
+    ]
+  }

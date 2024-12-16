@@ -1,30 +1,30 @@
+// Reactをインポート
 import React from 'react';
+// React Routerのコンポーネントをインポート
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// スタイルシートをインポート
 import './App.css';
+// Loginコンポーネントをインポート
+import Login from './apps/login/index';
+// ルート定数をインポート
+import { LOGIN_ROUTE } from './shared/constants/routes';
 
-// Appコンポーネント
-// Reactアプリケーションのメインコンポーネント
+// Appコンポーネントを定義
 function App() {
   return (
-    // アプリケーション全体を囲むdiv要素
-    <div className="App">
-      {/* アプリケーションのヘッダー */}
-      <header className="App-header">
-        {/* 編集を促すメッセージ */}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        {/* Reactの公式サイトへのリンク */}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // ルーターコンポーネントでアプリ全体をラップ
+    <Router>
+      {/* アプリのメインコンテナ */}
+      <div className="App">
+        {/* ルートを定義 */}
+        <Routes>
+          {/* ログインルートを定義 */}
+          <Route path={LOGIN_ROUTE} element={<Login />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
+// Appコンポーネントをエクスポート
 export default App;
