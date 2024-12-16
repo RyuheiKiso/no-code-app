@@ -1,5 +1,5 @@
 -- ユーザーを追加
-CREATE USER 'dev'@'%' IDENTIFIED BY 'dev';
+CREATE USER IF NOT EXISTS 'dev'@'%' IDENTIFIED BY 'dev';
 
 -- ユーザーに権限を付与
 GRANT ALL PRIVILEGES ON *.* TO 'dev'@'%' WITH GRANT OPTION;
