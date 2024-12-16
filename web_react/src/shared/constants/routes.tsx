@@ -1,10 +1,10 @@
 // routes.tsx
 
-// ホームルート
-export const HOME_ROUTE = '/';
-
 // ログインルート
-export const LOGIN_ROUTE = '/login';
+export const LOGIN_ROUTE = '/';
+
+// ホームルート
+export const HOME_ROUTE = '/home';
 
 // 登録ルート
 export const REGISTER_ROUTE = '/register';
